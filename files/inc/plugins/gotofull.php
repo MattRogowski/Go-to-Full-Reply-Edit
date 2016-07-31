@@ -102,7 +102,7 @@ function gotofull_reply_button()
 					form = jQuery(that).parents('.post').find('form');
 					if(!jQuery(form).find('.gotofulledit').length)
 					{
-						button = jQuery('<button/>', {'type':'submit','text':'".$lang->gotofull_reply."','name':'gotofulledit','class':'gotofulledit','value':'1'});
+						button = jQuery('<button/>', {'type':'submit','text':'".$lang->gotofull_edit."','name':'gotofulledit','class':'gotofulledit','value':'1'});
 						jQuery(form).find('button:last').after(button);
 						button.on('click', function() {
 							jQuery(form).attr('method','post').attr('action','editpost.php?pid='+post_id).unbind('submit').find('.gotofulledit').click();
