@@ -1,6 +1,6 @@
 <?php
 /**
- * Go to Full Reply/Edit 1.1
+ * Go to Full Reply/Edit 1.0.0
 
  * Copyright 2016 Matthew Rogowski
 
@@ -34,9 +34,9 @@ function gotofull_info()
 		"website" => "https://github.com/MattRogowski/Go-to-Full-Reply-Edit",
 		"author" => "Matt Rogowski",
 		"authorsite" => "https://matt.rogow.ski",
-		"version" => "1.1",
-		"compatibility" => "16*,18*",
-		"guid" => "43a080234dcf1acbb6e38dc0dd843279"
+		"version" => "1.0.0",
+		"compatibility" => "18*",
+		"codename" => "gotofull"
 	);
 }
 

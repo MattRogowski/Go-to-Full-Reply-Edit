@@ -1,10 +1,10 @@
 Name: Go to Full Reply/Edit
 Description: Allows you to quickly go from quick reply to full reply or quick edit to full edit whilst saving any text you had previously entered.
-Website: http://mattrogowski.co.uk
-Author: MattRogowski
-Authorsite: http://mattrogowski.co.uk
-Version: 0.1.1
-Compatibility: 1.6.x
+Website: https://github.com/MattRogowski/Go-to-Full-Reply-Edit
+Author: Matt Rogowski
+Authorsite: https://matt.rogow.ski
+Version: 1.0.0
+Compatibility: 1.8.x
 Files: 2
 Templates added: 2
 Template changes: 2
@@ -20,8 +20,9 @@ Go to ACP > Plugins > Activate
 Change Log:
 30/05/11 - v0.1 -> Initial 'beta' release.
 30/05/11 - v0.1 -> v0.1.1 -> Forgot to change text in templates to language variables. To upgrade, deactivate, reupload ./inc/plugins/gotofull.php, activate.
+08/10/16 - v0.1.1 -> v1.0.0 -> MyBB 1.8 compatible. To upgrade, deactivate, reupload ./inc/plugins/gotofull.php, activate.
 
-Copyright 2010 Matthew Rogowski
+Copyright 2016 Matthew Rogowski
 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

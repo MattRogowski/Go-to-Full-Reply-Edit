@@ -1,6 +1,6 @@
 <?php
 /**
- * Go to Full Reply/Edit 1.1 - Language File
+ * Go to Full Reply/Edit 1.0.0 - Language File
 
  * Copyright 2016 Matthew Rogowski
 
