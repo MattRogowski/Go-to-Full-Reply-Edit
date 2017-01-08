@@ -1,8 +1,8 @@
 <?php
 /**
- * Go to Full Reply/Edit 1.0.0
+ * Go to Full Reply/Edit 1.0.1
 
- * Copyright 2016 Matthew Rogowski
+ * Copyright 2017 Matthew Rogowski
 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,14 @@ $plugins->add_hook("global_start", "gotofull_reply");
 $plugins->add_hook("showthread_start", "gotofull_reply_button");
 $plugins->add_hook("editpost_end", "gotofull_edit");
 
+global $templatelist;
+
+if($templatelist)
+{
+	$templatelist .= ',';
+}
+$templatelist .= 'gotofull_reply';
+
 function gotofull_info()
 {
 	return array(
@@ -34,7 +42,7 @@ function gotofull_info()
 		"website" => "https://github.com/MattRogowski/Go-to-Full-Reply-Edit",
 		"author" => "Matt Rogowski",
 		"authorsite" => "https://matt.rogow.ski",
-		"version" => "1.0.0",
+		"version" => "1.0.1",
 		"compatibility" => "18*",
 		"codename" => "gotofull"
 	);
@@ -43,11 +51,11 @@ function gotofull_info()
 function gotofull_activate()
 {
 	global $db;
-	
+
 	require_once MYBB_ROOT . "inc/adminfunctions_templates.php";
-	
+
 	gotofull_deactivate();
-	
+
 	$templates = array();
 	$templates[] = array(
 		"title" => "gotofull_reply",
@@ -64,31 +72,31 @@ function gotofull_activate()
 		);
 		$db->insert_query("templates", $insert);
 	}
-	
+
 	find_replace_templatesets("showthread_quickreply", "#".preg_quote('<input type="submit" class="button" name="previewpost" value="{$lang->preview_post}" tabindex="3" />')."#i", '<input type="submit" class="button" name="previewpost" value="{$lang->preview_post}" tabindex="3" />{$gotofull_reply}');
 }
 
 function gotofull_deactivate()
 {
 	global $db;
-	
+
 	require_once MYBB_ROOT . "inc/adminfunctions_templates.php";
-	
+
 	$templates = array(
 		"gotofull_reply"
 	);
 	$templates = "'" . implode("','", $templates) . "'";
 	$db->delete_query("templates", "title IN ({$templates})");
-	
+
 	find_replace_templatesets("showthread_quickreply", "#".preg_quote('{$gotofull_reply}')."#i", '', 0);
 }
 
 function gotofull_reply_button()
 {
 	global $lang, $templates, $gotofull_reply;
-	
+
 	$lang->load("gotofull");
-	
+
 	eval("\$gotofull_reply = \"".$templates->get('gotofull_reply')."\";");
 
 	$script = "<script>
@@ -119,7 +127,7 @@ function gotofull_reply_button()
 function gotofull_reply()
 {
 	global $mybb;
-	
+
 	if(THIS_SCRIPT == "newreply.php" && $mybb->input['action'] == "do_newreply" && $mybb->input['method'] == "quickreply" && $mybb->input['gotofullreply'])
 	{
 		$mybb->input['action'] = "newreply";
@@ -129,7 +137,7 @@ function gotofull_reply()
 function gotofull_edit()
 {
 	global $mybb, $message;
-	
+
 	if($mybb->input['gotofulledit'])
 	{
 		$message = $mybb->input['value'];
